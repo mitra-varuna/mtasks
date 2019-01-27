@@ -4,11 +4,12 @@ package mtasks
 type Task struct {
 	Title       string
 	Description string
+	IsDone      bool
 }
 
-// TaskManager represents an interface which manages task
-type TaskManager interface {
-	Create() (Task, error)
-	Edit(t Task) (bool, error)
-	MarkDone(t Task)
+// Tasker represents an interface which manages task
+type Tasker interface {
+	Create() error
+	Edit() (bool, error)
+	MarkDone()
 }
